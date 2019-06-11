@@ -14,15 +14,15 @@
 
 ### To run Client
 
-cd live-tree/client
-npm install
-npm start
+cd live-tree/client<br>
+npm install <br>
+npm start <br>
 
 ### To run Sever
 
-cd live-tree
-npm install
-npm start server
+cd live-tree<br>
+npm install<br>
+npm start server<br>
 
 # Authors
 
