@@ -14,13 +14,17 @@
 ## Quick Start:
 
 ```
-Change default.json file in config folder
+# Change default.json file in config folder
 
-this file is located in config/default
+# this file is located in config/default
 
-add uri of your mongodb connection for example
+# add uri of your mongodb connection for example
 
     "mongoURI": "mongodb://localhost/live-tree",
+```
+
+```
+
 ```
 
 ### To run Client
