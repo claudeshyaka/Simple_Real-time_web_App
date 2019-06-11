@@ -2,13 +2,15 @@
 
 ## Development Stack
 
-- Nodejs
-- Expressjs
-- Socket.io
-- Reactjs
-- Redux
-- Sematic ui
-- Heroku
+- MongoDB
+
+* Nodejs
+* Express
+* Socket.io
+* Reactjs
+* Redux
+* Sematic ui
+* Heroku
 
 ## Setting up:
 
