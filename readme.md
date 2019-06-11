@@ -9,7 +9,7 @@ It is a small web application that includes real-time manipulation of data.
 
 - Nodejs
 - Express
-- Socket.io
+- Socket.iod
 - Reactjs
 - Redux
 - Sematic ui
