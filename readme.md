@@ -37,20 +37,8 @@ npm run dev
 # Build for production
 cd client
 npm run build
-
-### To run Client
-
-cd live-tree/client<br>
-npm install <br>
-npm start <br>
-
-### To run Sever
-
-cd live-tree<br>
-npm install<br>
-npm start server<br>
+```
 
 # Authors
 
 - Claude Shyaka
-```
