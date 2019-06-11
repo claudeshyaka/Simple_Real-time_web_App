@@ -13,6 +13,8 @@ const NodeFactory = require("./factory/NodeFactory");
 
 connectDB();
 
+const PORT = process.env.PORT || 5000;
+
 // Socket.io events
 
 io.on("connection", socket => {
@@ -129,18 +131,17 @@ io.on("connection", socket => {
   });
 });
 
+app.use("/factory/new", express.static("client/build"));
+app.use("/factories/edit/:_id", express.static("client/build"));
+app.use("/factories/delete/:_id", express.static("client/build"));
+app.use("/factories/:_id", express.static("client/build"));
+
 // Static asset in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  app.use("/factory/new", express.static("client/build"));
-  app.use("/factories/edit/:_id", express.static("client/build"));
-  app.use("/factories/delete/:_id", express.static("client/build"));
-  app.use("/factories/:_id", express.static("client/build"));
-
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
-const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
