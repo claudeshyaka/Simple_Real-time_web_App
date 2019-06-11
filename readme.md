@@ -39,6 +39,16 @@ cd client
 npm run build
 ```
 
-# Authors
+## App Info
 
-- Claude Shyaka
+### Author
+
+Claude Shyaka
+
+### Version
+
+1.0.0
+
+### License
+
+This project is licensed under the MIT License
