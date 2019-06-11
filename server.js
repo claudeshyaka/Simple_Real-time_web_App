@@ -125,7 +125,6 @@ io.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
-    console.log("user disconnected");
     io.emit("message", "user disconnected");
   });
 });
@@ -133,6 +132,10 @@ io.on("connection", socket => {
 // Static asset in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+  app.use("/factory/new", express.static("client/build"));
+  app.use("/factories/edit/:_id", express.static("client/build"));
+  app.use("/factories/delete/:_id", express.static("client/build"));
+  app.use("/factories/:_id", express.static("client/build"));
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

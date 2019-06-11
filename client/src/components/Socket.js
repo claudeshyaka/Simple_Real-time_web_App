@@ -1,3 +1,3 @@
 const io = require("socket.io-client");
 
-export default io("http://localhost:5000/");
+export default io("http://localhost:6779/");
