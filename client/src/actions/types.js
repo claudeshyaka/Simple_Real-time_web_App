@@ -1,5 +1,3 @@
-export const SIGN_IN = "SIGN_IN";
-export const SIGN_OUT = "SIGN_OUT";
 export const ROOT_NAME = "ROOT_NAME";
 export const CREATE_FACTORY = "CREATE_FACTORY";
 export const GET_FACTORIES = "GET_FACTORIES";

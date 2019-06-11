@@ -11,10 +11,6 @@ const NodeFactory = require("./factory/NodeFactory");
 
 connectDB();
 
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/public/index.html");
-// });
-
 io.on("connection", socket => {
   console.log(`New client connected: ${socket.id}`);
 
@@ -87,9 +83,6 @@ io.on("connection", socket => {
   });
 
   socket.on("edit_factory", async ({ id, formValues }) => {
-    console.log("============================");
-    console.log(formValues);
-    console.log("============================");
     const { name, length, min, max } = formValues;
 
     const _length = Number.parseInt(length, 10);
@@ -97,8 +90,7 @@ io.on("connection", socket => {
     const _max = Number.parseInt(max, 10);
 
     const newFactory = NodeFactory(name, _length, _min, _max);
-    console.log("New Factory", newFactory);
-    console.log("============================");
+
     try {
       const factory = await Factory.findByIdAndUpdate(
         id,
@@ -113,10 +105,6 @@ io.on("connection", socket => {
         },
         { new: true }
       );
-      // const factory = await Factory.findById(id);
-
-      console.log("new factory data", factory);
-      console.log("============================");
 
       io.emit("edited_factory", factory);
     } catch (err) {
@@ -126,26 +114,13 @@ io.on("connection", socket => {
 
   socket.on("delete_factory", async id => {
     try {
-      // await Factory.findByIdAndRemove(id);
-      // const root = await Root.find();
+      await Factory.findByIdAndRemove(id);
 
-      console.log("id>>>", id);
-
-      const root = await Root.updateOne(
-        {},
-        { $pull: { "factory.$.factories": { _id: id } } }
-      );
-
-      console.log("Roots nodes", root);
-      // await root.save();
-
-      io.emit("deleted_factory");
+      io.emit("deleted_factory", id);
     } catch (err) {
       console.error(err.message);
     }
   });
-
-  socket.on("delete_all_factories", async () => {});
 
   socket.on("disconnect", () => {
     console.log("user disconnected");

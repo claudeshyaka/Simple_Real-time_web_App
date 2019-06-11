@@ -22,9 +22,6 @@ export default (state = {}, action) => {
       return { ...state, [action.payload._id]: action.payload };
 
     case DELETE_FACTORY:
-      console.log("State in red", state);
-      console.log("payload in red", action.payload);
-
       return _.omit(state, action.payload);
 
     default:

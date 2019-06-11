@@ -1,5 +1,3 @@
-// const Node = require("./Node");
-
 class ParentNode {
   constructor(name, length, min = 0, max = 10, childNodes) {
     this.name = name;

@@ -11,7 +11,17 @@
 - Heroku
 - MongoDB
 
-## Setting up:
+## Quick Start:
+
+```
+Change default.json file in config folder
+
+this file is located in config/default
+
+add uri of your mongodb connection for example
+
+    "mongoURI": "mongodb://localhost/live-tree",
+```
 
 ### To run Client
 

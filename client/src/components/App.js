@@ -9,9 +9,6 @@ import FactoryDelete from "./factories/FactoryDelete";
 import FactoryDetail from "./factories/FactoryDetail";
 import FactoryCreate from "./factories/FactoryCreate";
 
-// import Socket from "./Socket";
-// import { loadInitialRootDataSocket } from "../actions";
-
 const App = () => {
   return (
     <div className="ui container">
