@@ -2,6 +2,7 @@ const app = require("express")();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const connectDB = require("./config/db");
+const path = require("path");
 
 const Root = require("./models/Root");
 const Factory = require("./models/Factory");
@@ -11,9 +12,9 @@ const NodeFactory = require("./factory/NodeFactory");
 
 connectDB();
 
-io.on("connection", socket => {
-  console.log(`New client connected: ${socket.id}`);
+// Socket.io events
 
+io.on("connection", socket => {
   socket.on("fetch_root", async () => {
     try {
       let root = await Root.findOne({});
@@ -127,6 +128,15 @@ io.on("connection", socket => {
     io.emit("message", "user disconnected");
   });
 });
+
+// Static asset in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));
