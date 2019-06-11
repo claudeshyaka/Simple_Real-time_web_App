@@ -1,23 +1,19 @@
+const path = require("path");
 const express = require("express");
-const http = require("http");
-const IO = require("socket.io");
 const app = express();
-
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 const PORT = process.env.PORT || 5000;
 
-// const server = app.listen(PORT);
-const server = http.createServer(app);
-
-const io = IO(server);
-
 const connectDB = require("./config/db");
-
-const path = require("path");
 
 const Root = require("./models/Root");
 const Factory = require("./models/Factory");
 const NodeFactory = require("./factory/NodeFactory");
 
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 // connect to Database
 
 connectDB();
