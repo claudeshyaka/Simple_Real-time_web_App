@@ -1,4 +1,9 @@
-# Passort developer challenge
+# Passort Full Stack Developer Challenge
+
+> Live updating tree
+
+This is a MERN + socket.io application.
+It is a small web application that includes real-time manipulation of data.
 
 ## Development Stack
 
