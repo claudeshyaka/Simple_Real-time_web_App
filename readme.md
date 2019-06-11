@@ -23,9 +23,20 @@
     "mongoURI": "mongodb://localhost/live-tree",
 ```
 
-```
+```bash
+# Install server dependencies
+npm install
 
-```
+# Install client dependencies
+cd client
+npm install
+
+# Run both Express & React from root
+npm run dev
+
+# Build for production
+cd client
+npm run build
 
 ### To run Client
 
@@ -42,3 +53,4 @@ npm start server<br>
 # Authors
 
 - Claude Shyaka
+```
